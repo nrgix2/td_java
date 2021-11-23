@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.Valid;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="user")
 public class User {
@@ -22,8 +24,33 @@ public class User {
 	 	@Valid
 	    @Column(name="lastname", length=30, nullable=false)
 	    private String lastname;
-
+	 	
 	 	@Valid
+	    @Column(name="role", length=30, nullable=false)
+	    private String role;
+	 	
+	 	@Valid
+	 	@JsonIgnore
+	    @Column(name="password", length=30, nullable=false)
+	    private String password;
+
+	 	public String getRole() {
+			return role;
+		}
+
+		public void setRole(String role) {
+			this.role = role;
+		}
+
+		public String getPassword() {
+			return password;
+		}
+
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
+		@Valid
 	    @Column(name="telephone")
 	    private int telephone;
 
